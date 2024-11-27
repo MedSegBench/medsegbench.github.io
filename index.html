@@ -1,0 +1,1718 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description" content="DESCRIPTION META TAG">
+  <meta property="og:title" content="SOCIAL MEDIA TITLE TAG"/>
+  <meta property="og:description" content="SOCIAL MEDIA DESCRIPTION TAG TAG"/>
+  <meta property="og:url" content="URL OF THE WEBSITE"/>
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+
+
+  <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG">
+  <meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG">
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+  <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords" content="KEYWORDS SHOULD BE PLACED HERE">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <title>Academic Project Page</title>
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+  rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bootstrap.min.css">
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="static/js/bootstrap.min.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/index.js"></script>
+</head>
+<body>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">MedSegBench: A comprehensive benchmark for medical image segmentation in diverse data modalities</h1>
+            <div class="is-size-5 publication-authors">
+              <!-- Paper authors -->
+              <span class="author-block">
+                <a href="https://zkus.fsm.edu.tr/" target="_blank">Zeki Kuş</a><sup>*</sup>,</span>
+                <span class="author-block">
+                  <a href="https://maydin.fsm.edu.tr/" target="_blank">Musa Aydın</a><sup>*</sup>,</span>
+                  </div>
+
+                  <div class="is-size-5 publication-authors">
+                    <span class="author-block">Fatih Sultan Mehmet Vakif University, İstanbul, Türkiye</span>
+                    
+                  </div>
+
+                  <div class="column has-text-centered">
+                    <div class="publication-links">
+                         <!-- Arxiv PDF link -->
+                      <span class="link-block">
+                        <a href="https://www.nature.com/articles/s41597-024-04159-2" target="_blank"
+                        class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                          <i class="fas fa-file-pdf"></i>
+                        </span>
+                        <span>Paper</span>
+                      </a>
+                    </span>
+
+                    <!-- Supplementary PDF link -->
+                    <span class="link-block">
+                      <a href="https://zenodo.org/records/13359660" target="_blank"
+                      class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="fas fa-database"></i>
+                      </span>
+                      <span>Data</span>
+                    </a>
+                  </span>
+
+                  <!-- Github link -->
+                  <span class="link-block">
+                    <a href="https://github.com/zekikus/MedSegBench" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+
+                <!-- ArXiv abstract Link -->
+                <span class="link-block">
+                  <a href="https://zenodo.org/records/13381081" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>Experiments</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Teaser video-->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="static/images/summary.jpg" alt="MY ALT TEXT"/>
+      <h2 class="subtitle has-text-centered">
+        Visual overview of the 35 datasets included in MedSegBench. Each dataset is represented by two
+        sample images, showcasing the diversity of medical imaging modalities and segmentation tasks covered in this
+        benchmark. The datasets span various anatomical regions and pathologies, including abdominal ultrasound, cell
+        microscopy, chest X-rays, dermoscopy, endoscopy, fundus imaging, MRI, CT scans, and more.      </h2>
+    </div>
+  </div>
+</section>
+<!-- End teaser video -->
+
+<!-- Paper abstract -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths" style="width: 110%;">
+        <h2 class="title is-3" align="left">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            MedSegBench is a comprehensive benchmark designed to evaluate deep learning models for medical image segmentation across a wide range of modalities. It covers a wide range of modalities, including 35 datasets with over 60,000 images from ultrasound, MRI, and X-ray. The benchmark addresses challenges in medical imaging by providing standardized datasets with train/validation/test splits, considering variability in image quality and dataset imbalances. The benchmark supports binary and multi-class segmentation tasks with up to 19 classes and uses the U-Net architecture with various encoder/decoder networks such as ResNets, EfficientNet, and DenseNet for evaluations. MedSegBench is a valuable resource for developing robust and flexible segmentation algorithms and allows for fair comparisons across different models, promoting the development of universal models for medical tasks. It is the most comprehensive study among medical segmentation datasets. The datasets and source code are publicly available, encouraging further research and development in medical image analysis.          
+          </p>
+        </div>
+        <!-- Summary -->
+        <hr style="background-color: gray;">
+        <h2 class="title is-3" align="left">Summary</h2>
+        <div class="content has-text-justified">
+          <ul>
+            <li>
+              <b>Diversity of modalities:</b> The benchmark includes datasets from various imaging modalities such as Ultrasound, MRI, X-Ray, OCT, Dermoscopy, Endoscopy, and various types of microscopy.
+            </li>
+            <li>
+              <b>Task complexity:</b> It covers binary and multi-class segmentation tasks with up to 19 classes.
+            </li>
+            <li>
+              <b>Dataset sizes:</b> There’s a wide range in the number of images per dataset, from as few as 28 to as many as
+21,165.
+            </li>
+            <li>
+              <b>Data split:</b> All datasets follow a standard train/validation/test split, which is crucial for properly evaluating
+machine learning models.
+            </li>
+            <li>
+              <b>Standardization:</b> All datasets are standardized to enhance comparability and ease of use. Samples across all
+datasets have been resized to three standard resolutions - 128, 256, and 512 pixels - and stored in a uniform
+format.
+            </li>
+            <li>
+              <b>Application areas:</b> The datasets cover various medical applications, including cancer detection, COVID-19
+diagnosis, cell and nuclei segmentation, and organ segmentation.
+            </li>
+          </ul>
+        </div>
+
+        <!-- Installation and Requirements -->
+        <hr style="background-color: gray;">
+        <h2 class="title is-3" align="left">Installation</h2>
+        <div class="content has-text-justified">
+          <p>
+            Setup the required environments and install `medsegbench` as a standard Python package from <a href="https://pypi.org/project/medsegbench/">PyPI</a>:
+          </p>
+         <code>
+          pip install medsegbench<br/><br/>
+         </code>
+         <p>
+          Or install from source:
+         </p>
+         <code>
+          pip install --upgrade git+https://github.com/zekikus/MedSegBench.git
+         </code>
+        </div>
+
+        <!-- Getting Started -->
+        <hr style="background-color: gray;">
+        <h2 class="title is-3" align="left">Getting Started</h2>
+        <div class="content has-text-justified">
+          <p>
+            You can use default 512 sized version using the downloaded files:
+          </p>
+          <code>
+              >>> from medsegbench import Promise12MSBench<br/>
+          </code>
+          <code>
+            >>> train_dataset = Promise12MSBench(split="train")<br/><br/>
+          </code>
+
+          <p>
+            You can download the dataset by setting `download=True`:
+          </p>
+          <code>
+            >>> from medsegbench import Promise12MSBench<br/>
+          </code>
+          <code>
+            >>> train_dataset = Promise12MSBench(split="train", download=True)<br/><br/>
+          </code>
+          
+          <p>
+            You can download different sized versions by setting `size={128, 256, 512}`:
+          </p>
+          <code>
+            >>> from medsegbench import Promise12MSBench<br/>
+          </code>
+          <code>
+            >>> train_dataset = Promise12MSBench(split="train", size=256)<br/><br/>
+          </code>
+
+          <p>
+            You can download sub-categories of dataset by setting `category={C1, C2, C3, ...}`:
+          </p>
+          <code>
+            >>> from medsegbench import WbcMSBench<br/>
+          </code>
+          <code>
+            >>> train_dataset = WbcMSBench(split="train", category='C1')
+          </code>
+        </div>
+
+        <!-- Dataset Info -->
+        <hr style="background-color: gray;">
+        <h2 class="title is-3" align="left">Dataset Info</h2>
+        <div class="content has-text-justified">
+          <table class="table table-hover">
+            <thead class="thead-light">
+              <tr>
+                <th>Dataset Name</th>
+                <th>Modality</th>
+                <th>Pathology/Organ Studied</th>
+                <th>Binary or Multi-class (# Classes)</th>
+                <th># Images</th>
+                <th># Train/Val/Test</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>AbdomenUSMSBench</td>
+                <td>Ultrasound</td>
+                <td>Gallbladder, Kidney, Liver, Spleen, Vessel</td>
+                <td>Multi-class (9)</td>
+                <td>926</td>
+                <td>569/64/293</td>
+              </tr>
+              <tr>
+                <td>Bbbc010MSBench</td>
+                <td>Microscopy</td>
+                <td>Caenorhabditis elegans</td>
+                <td>Binary</td>
+                <td>100</td>
+                <td>70/10/20</td>
+              </tr>
+              <tr>
+                <td>Bkai-Igh-MSBench</td>
+                <td>Endoscopy</td>
+                <td>Colon polyps</td>
+                <td>Multi-class (3)</td>
+                <td>1,000</td>
+                <td>700/100/200</td>
+              </tr>
+              <tr>
+                <td>BriFiSegMSBench</td>
+                <td>Microscopy</td>
+                <td>Lung, Cervix, Breast, Eye</td>
+                <td>Binary</td>
+                <td>1,360</td>
+                <td>1005/115/240</td>
+              </tr>
+              <tr>
+                <td>BusiMSBench</td>
+                <td>Ultrasound</td>
+                <td>Breast</td>
+                <td>Binary</td>
+                <td>647</td>
+                <td>452/64/131</td>
+              </tr>
+              <tr>
+                <td>CellNucleiMSBench</td>
+                <td>Nuclei</td>
+                <td>Nuclei</td>
+                <td>Binary</td>
+                <td>670</td>
+                <td>469/67/134</td>
+              </tr>
+              <tr>
+                <td>ChaseDB1MSBench</td>
+                <td>Fundus</td>
+                <td>Eye (Retinal vessels)</td>
+                <td>Binary</td>
+                <td>28</td>
+                <td>19/2/7</td>
+              </tr>
+              <tr>
+                <td>ChuacMSBench</td>
+                <td>Fundus</td>
+                <td>Eye (Retinal vessels)</td>
+                <td>Binary</td>
+                <td>30</td>
+                <td>21/3/6</td>
+              </tr>
+              <tr>
+                <td>Covid19RadioMSBench</td>
+                <td>Chest X-Ray</td>
+                <td>Lung</td>
+                <td>Binary</td>
+                <td>21,165</td>
+                <td>14,814/2,115/4,236</td>
+              </tr>
+              <tr>
+                <td>CovidQUExMSBench</td>
+                <td>Chest X-Ray</td>
+                <td>Lung</td>
+                <td>Binary</td>
+                <td>2,913</td>
+                <td>1,864/466/583</td>
+              </tr>
+              <tr>
+                <td>CystoFluidMSBench</td>
+                <td>OCT</td>
+                <td>Eye (Cystoid macular edema)</td>
+                <td>Binary</td>
+                <td>1,006</td>
+                <td>703/101/202</td>
+              </tr>
+              <tr>
+                <td>Dca1MSBench</td>
+                <td>Fundus</td>
+                <td>Eye (Retinal vessels)</td>
+                <td>Binary</td>
+                <td>134</td>
+                <td>93/13/28</td>
+              </tr>
+              <tr>
+                <td>DeepbacsMSBench</td>
+                <td>Microscopy</td>
+                <td>Bacterial cells</td>
+                <td>Binary</td>
+                <td>34</td>
+                <td>17/2/15</td>
+              </tr>
+              <tr>
+                <td>DriveMSBench</td>
+                <td>Fundus</td>
+                <td>Eye (Retinal vessels)</td>
+                <td>Binary</td>
+                <td>40</td>
+                <td>18/2/20</td>
+              </tr>
+              <tr>
+                <td>DynamicNuclearMSBench</td>
+                <td>Nuclear Cell</td>
+                <td>Nuclear Cells</td>
+                <td>Binary</td>
+                <td>7,084</td>
+                <td>4,950/1,417/717</td>
+              </tr>
+              <tr>
+                <td>FHPsAOPMSBench</td>
+                <td>Ultrasound</td>
+                <td>Fetal head, pubic symphysis</td>
+                <td>Multi-class (3)</td>
+                <td>4,000</td>
+                <td>2,800/400/800</td>
+              </tr>
+              <tr>
+                <td>IdribMSBench</td>
+                <td>Fundus</td>
+                <td>Eye (Optic discs)</td>
+                <td>Binary</td>
+                <td>80</td>
+                <td>47/6/27</td>
+              </tr>
+              <tr>
+                <td>Isic2016MSBench</td>
+                <td>Dermoscopy</td>
+                <td>Skin (Lesions)</td>
+                <td>Binary</td>
+                <td>1,279</td>
+                <td>810/90/379</td>
+              </tr>
+              <tr>
+                <td>Isic2018MSBench</td>
+                <td>Dermoscopy</td>
+                <td>Skin (Lesions)</td>
+                <td>Binary</td>
+                <td>3,694</td>
+                <td>2,594/100/1,000</td>
+              </tr>
+              <tr>
+                <td>KvasirMSBench</td>
+                <td>Endoscopy</td>
+                <td>Gastrointestinal polyps</td>
+                <td>Binary</td>
+                <td>1,000</td>
+                <td>700/100/200</td>
+              </tr>
+              <tr>
+                <td>M2caiSegMSBench</td>
+                <td>Endoscopy</td>
+                <td>Surgical tools and abdominal tissues</td>
+                <td>Multi-class (19)</td>
+                <td>614</td>
+                <td>245/307/62</td>
+              </tr>
+              <tr>
+                <td>MonusacMSBench</td>
+                <td>Pathology</td>
+                <td>Lung, Prostate, Kidney, and Breast</td>
+                <td>Multi-class (6)</td>
+                <td>310</td>
+                <td>188/21/101</td>
+              </tr>
+              <tr>
+                <td>MosMedPlusMSBench</td>
+                <td>CT</td>
+                <td>Lung</td>
+                <td>Binary</td>
+                <td>2,729</td>
+                <td>1,910/272/547</td>
+              </tr>
+              <tr>
+                <td>NucleiMSBench</td>
+                <td>Pathology</td>
+                <td>Cell Nuclei</td>
+                <td>Binary</td>
+                <td>141</td>
+                <td>98/14/29</td>
+              </tr>
+              <tr>
+                <td>NusetMSBench</td>
+                <td>Nuclear Cell</td>
+                <td>Nuclear cells</td>
+                <td>Binary</td>
+                <td>3,408</td>
+                <td>2,385/340/683</td>
+              </tr>
+              <tr>
+                <td>PandentalMSBench</td>
+                <td>X-Ray</td>
+                <td>Mandible</td>
+                <td>Binary</td>
+                <td>116</td>
+                <td>81/11/24</td>
+              </tr>
+              <tr>
+                <td>PolypGenMSBench</td>
+                <td>Endoscopy</td>
+                <td>Colon polyps</td>
+                <td>Binary</td>
+                <td>1,412</td>
+                <td>984/140/288</td>
+              </tr>
+              <tr>
+                <td>Promise12MSBench</td>
+                <td>MRI</td>
+                <td>Prostate</td>
+                <td>Binary</td>
+                <td>1,473</td>
+                <td>1,031/147/295</td>
+              </tr>
+              <tr>
+                <td>RoboToolMSBench</td>
+                <td>Endoscopy</td>
+                <td>Surgical tools</td>
+                <td>Binary</td>
+                <td>500</td>
+                <td>350/50/100</td>
+              </tr>
+              <tr>
+                <td>TnbcnucleiMSBench</td>
+                <td>Pathology</td>
+                <td>Nuclei in histopathology images</td>
+                <td>Binary</td>
+                <td>50</td>
+                <td>35/5/10</td>
+              </tr>
+              <tr>
+                <td>UltrasoundNerveMSBench</td>
+                <td>Ultrasound</td>
+                <td>Neck (Brachial Plexus Nerves)</td>
+                <td>Binary</td>
+                <td>2,323</td>
+                <td>1,651/223/449</td>
+              </tr>
+              <tr>
+                <td>USforKidneyMSBench</td>
+                <td>Ultrasound</td>
+                <td>Kidney</td>
+                <td>Binary</td>
+                <td>4,586</td>
+                <td>3,210/458/918</td>
+              </tr>
+              <tr>
+                <td>UWSkinCancerMSBench</td>
+                <td>Dermoscopy</td>
+                <td>Skin (Cancer)</td>
+                <td>Binary</td>
+                <td>206</td>
+                <td>143/19/44</td>
+              </tr>
+              <tr>
+                <td>WbcMSBench</td>
+                <td>Microscopy</td>
+                <td>White Blood Cell</td>
+                <td>Multi-class (3)</td>
+                <td>400</td>
+                <td>280/40/80</td>
+              </tr>
+              <tr>
+                <td>YeazMSBench</td>
+                <td>Microscopy</td>
+                <td>Yeast Cells</td>
+                <td>Binary</td>
+                <td>707</td>
+                <td>360/96/251</td>
+              </tr>
+            </tbody>
+            </table>
+        </div>
+        <!-- Benchmarks-->
+        <hr style="background-color: gray;">
+        <h2 class="title is-3" align="left">Benchmark Results</h2>
+        <div class="content has-text-justified">
+          <table class="table table-hover">
+            <caption>
+              The average precision and recall results for six different encoder networks. RN-18: ResNet-18; RN-50: ResNet-50; EN: Efficient-Net; MN-v2: Mobile-Net-v2; DN-121: DenseNet-121; MVT: Mix Vision Transformer. Results are presented for each dataset, with the highest scores for precision and recall highlighted. A dash (-) indicates that the network is not evaluated for that particular dataset due to input channel constraints.
+            </caption>
+            <thead class="thead-light">
+              <tr>
+                <th></th>
+                <th colspan="6">Precision (PREC)</th>
+                <th colspan="6">Recall (REC)</th>
+              </tr>
+              <tr>
+                <th>Dataset</th>
+                <th>RN-18</th>
+                <th>RN-50</th>
+                <th>EN</th>
+                <th>MN-v2</th>
+                <th>DN-121</th>
+                <th>MVT</th>
+                <th>RN-18</th>
+                <th>RN-50</th>
+                <th>EN</th>
+                <th>MN-v2</th>
+                <th>DN-121</th>
+                <th>MVT</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>AbdomenUSMSB</td>
+                <td><strong>0.976</strong></td>
+                <td>0.973</td>
+                <td>0.950</td>
+                <td>0.964</td>
+                <td>0.955</td>
+                <td>-</td>
+                <td>0.652</td>
+                <td>0.654</td>
+                <td>0.670</td>
+                <td>0.655</td>
+                <td><strong>0.671</strong></td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>Bbbc010MSB</td>
+                <td>0.919</td>
+                <td><strong>0.926</strong></td>
+                <td>0.918</td>
+                <td>0.918</td>
+                <td>0.922</td>
+                <td>-</td>
+                <td>0.912</td>
+                <td>0.909</td>
+                <td>0.904</td>
+                <td>0.900</td>
+                <td><strong>0.920</strong></td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>Bkai-Igh-MSB</td>
+                <td><strong>0.983</strong></td>
+                <td>0.961</td>
+                <td>0.939</td>
+                <td>0.944</td>
+                <td>0.952</td>
+                <td><strong>0.983</strong></td>
+                <td>0.563</td>
+                <td>0.625</td>
+                <td>0.705</td>
+                <td><strong>0.737</strong></td>
+                <td>0.642</td>
+                <td>0.563</td>
+              </tr>
+              <tr>
+                <td>BriFiSegMSB</td>
+                <td>0.812</td>
+                <td>0.816</td>
+                <td>0.812</td>
+                <td>0.803</td>
+                <td><strong>0.817</strong></td>
+                <td>-</td>
+                <td>0.873</td>
+                <td>0.886</td>
+                <td>0.882</td>
+                <td>0.861</td>
+                <td><strong>0.898</strong></td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>BusiMSB</td>
+                <td>0.729</td>
+                <td>0.753</td>
+                <td>0.765</td>
+                <td>0.766</td>
+                <td><strong>0.794</strong></td>
+                <td>-</td>
+                <td>0.727</td>
+                <td>0.665</td>
+                <td><strong>0.728</strong></td>
+                <td>0.672</td>
+                <td>0.714</td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>CellNucleiMSB</td>
+                <td>0.924</td>
+                <td>0.920</td>
+                <td>0.913</td>
+                <td>0.901</td>
+                <td>0.927</td>
+                <td><strong>0.928</strong></td>
+                <td>0.882</td>
+                <td>0.886</td>
+                <td>0.894</td>
+                <td>0.872</td>
+                <td><strong>0.898</strong></td>
+                <td>0.883</td>
+              </tr>
+              <tr>
+                <td>ChaseDB1MSB</td>
+                <td>0.788</td>
+                <td>0.789</td>
+                <td>0.780</td>
+                <td><strong>0.794</strong></td>
+                <td>0.793</td>
+                <td>0.774</td>
+                <td>0.733</td>
+                <td>0.738</td>
+                <td>0.725</td>
+                <td>0.703</td>
+                <td><strong>0.739</strong></td>
+                <td>0.705</td>
+              </tr>
+              <tr>
+                <td>ChuacMSB</td>
+                <td>0.713</td>
+                <td>0.710</td>
+                <td>0.643</td>
+                <td>0.644</td>
+                <td><strong>0.870</strong></td>
+                <td>-</td>
+                <td>0.470</td>
+                <td>0.451</td>
+                <td><strong>0.526</strong></td>
+                <td>0.458</td>
+                <td>0.444</td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>Covid19RadioMSB</td>
+                <td>0.991</td>
+                <td>0.991</td>
+                <td>0.991</td>
+                <td>0.991</td>
+                <td><strong>0.992</strong></td>
+                <td>-</td>
+                <td>0.990</td>
+                <td>0.990</td>
+                <td><strong>0.991</strong></td>
+                <td><strong>0.991</strong></td>
+                <td><strong>0.991</strong></td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>CovidQUExMSB</td>
+                <td>0.741</td>
+                <td>0.738</td>
+                <td>0.753</td>
+                <td>0.739</td>
+                <td><strong>0.760</strong></td>
+                <td>-</td>
+                <td>0.824</td>
+                <td>0.810</td>
+                <td>0.815</td>
+                <td><strong>0.827</strong></td>
+                <td>0.826</td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>CystoFluidMSB</td>
+                <td><strong>0.889</strong></td>
+                <td>0.870</td>
+                <td>0.874</td>
+                <td>0.879</td>
+                <td>0.888</td>
+                <td>0.874</td>
+                <td>0.848</td>
+                <td><strong>0.872</strong></td>
+                <td>0.856</td>
+                <td>0.844</td>
+                <td>0.851</td>
+                <td>0.865</td>
+              </tr>
+              <tr>
+                <td>Dca1MSB</td>
+                <td>0.776</td>
+                <td>0.788</td>
+                <td>0.775</td>
+                <td>0.781</td>
+                <td><strong>0.801</strong></td>
+                <td>-</td>
+                <td><strong>0.757</strong></td>
+                <td><strong>0.757</strong></td>
+                <td>0.740</td>
+                <td>0.732</td>
+                <td>0.740</td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>DeepbacsMSB</td>
+                <td>0.957</td>
+                <td>0.956</td>
+                <td>0.955</td>
+                <td>0.958</td>
+                <td><strong>0.959</strong></td>
+                <td>-</td>
+                <td>0.905</td>
+                <td><strong>0.907</strong></td>
+                <td>0.897</td>
+                <td>0.886</td>
+                <td>0.900</td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>DriveMSB</td>
+                <td>0.817</td>
+                <td>0.789</td>
+                <td>0.799</td>
+                <td>0.811</td>
+                <td><strong>0.827</strong></td>
+                <td>0.784</td>
+                <td>0.756</td>
+                <td><strong>0.790</strong></td>
+                <td>0.748</td>
+                <td>0.750</td>
+                <td>0.751</td>
+                <td>0.784</td>
+              </tr>
+              <tr>
+                <td>DynamicNuclearMSB</td>
+                <td>0.924</td>
+                <td><strong>0.929</strong></td>
+                <td>0.937</td>
+                <td>0.926</td>
+                <td>0.928</td>
+                <td>-</td>
+                <td>0.965</td>
+                <td>0.965</td>
+                <td><strong>0.966</strong></td>
+                <td>0.963</td>
+                <td>0.965</td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>FHPsAOPMSB</td>
+                <td>0.962</td>
+                <td>0.964</td>
+                <td>0.964</td>
+                <td><strong>0.965</strong></td>
+                <td>0.961</td>
+                <td>-</td>
+                <td><strong>0.960</strong></td>
+                <td>0.951</td>
+                <td>0.956</td>
+                <td>0.955</td>
+                <td>0.959</td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>IdribMSB</td>
+                <td>0.150</td>
+                <td>0.153</td>
+                <td>0.139</td>
+                <td>0.150</td>
+                <td><strong>0.172</strong></td>
+                <td>0.110</td>
+                <td><strong>0.089</strong></td>
+                <td>0.072</td>
+                <td>0.065</td>
+                <td>0.078</td>
+                <td>0.068</td>
+                <td>0.041</td>
+              </tr>
+              <tr>
+                <td>Isic2016MSB</td>
+                <td>0.890</td>
+                <td>0.897</td>
+                <td>0.912</td>
+                <td>0.912</td>
+                <td><strong>0.913</strong></td>
+                <td>0.897</td>
+                <td>0.907</td>
+                <td>0.910</td>
+                <td><strong>0.919</strong></td>
+                <td>0.901</td>
+                <td>0.905</td>
+                <td>0.917</td>
+              </tr>
+              <tr>
+                <td>Isic2018MSB</td>
+                <td>0.838</td>
+                <td>0.839</td>
+                <td>0.857</td>
+                <td>0.864</td>
+                <td><strong>0.878</strong></td>
+                <td>0.854</td>
+                <td><strong>0.911</strong></td>
+                <td>0.907</td>
+                <td>0.923</td>
+                <td>0.908</td>
+                <td>0.896</td>
+                <td>0.907</td>
+              </tr>
+              <tr>
+                <td>KvasirMSB</td>
+                <td>0.816</td>
+                <td>0.770</td>
+                <td>0.839</td>
+                <td>0.842</td>
+                <td><strong>0.874</strong></td>
+                <td>0.644</td>
+                <td>0.768</td>
+                <td>0.755</td>
+                <td><strong>0.860</strong></td>
+                <td>0.780</td>
+                <td>0.804</td>
+                <td>0.697</td>
+              </tr>
+              <tr>
+                <td>M2caiSegMSB</td>
+                <td>0.737</td>
+                <td>0.756</td>
+                <td><strong>0.801</strong></td>
+                <td>0.762</td>
+                <td>0.759</td>
+                <td>0.794</td>
+                <td>0.224</td>
+                <td>0.225</td>
+                <td>0.228</td>
+                <td>0.225</td>
+                <td><strong>0.230</strong></td>
+                <td>0.227</td>
+              </tr>
+              <tr>
+                <td>MonusacMSB</td>
+                <td>0.945</td>
+                <td><strong>0.951</strong></td>
+                <td><strong>0.951</strong></td>
+                <td><strong>0.951</strong></td>
+                <td><strong>0.951</strong></td>
+                <td><strong>0.951</strong></td>
+                <td><strong>0.589</strong></td>
+                <td><strong>0.589</strong></td>
+                <td><strong>0.589</strong></td>
+                <td><strong>0.589</strong></td>
+                <td><strong>0.589</strong></td>
+                <td><strong>0.589</strong></td>
+              </tr>
+              <tr>
+                <td>MosMedPlusMSB</td>
+                <td>0.816</td>
+                <td>0.817</td>
+                <td>0.807</td>
+                <td>0.821</td>
+                <td><strong>0.826</strong></td>
+                <td>0.808</td>
+                <td>0.786</td>
+                <td><strong>0.802</strong></td>
+                <td>0.796</td>
+                <td>0.793</td>
+                <td>0.798</td>
+                <td>0.767</td>
+              </tr>
+              <tr>
+                <td>NucleiMSB</td>
+                <td><strong>0.250</strong></td>
+                <td>0.233</td>
+                <td>0.223</td>
+                <td>0.199</td>
+                <td>0.225</td>
+                <td>0.196</td>
+                <td>0.394</td>
+                <td>0.395</td>
+                <td>0.449</td>
+                <td>0.281</td>
+                <td>0.479</td>
+                <td><strong>0.481</strong></td>
+              </tr>
+              <tr>
+                <td>NusetMSB</td>
+                <td>0.949</td>
+                <td>0.950</td>
+                <td><strong>0.953</strong></td>
+                <td>0.950</td>
+                <td><strong>0.953</strong></td>
+                <td>-</td>
+                <td>0.951</td>
+                <td>0.951</td>
+                <td>0.951</td>
+                <td><strong>0.952</strong></td>
+                <td><strong>0.952</strong></td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>PandentalMSB</td>
+                <td>0.956</td>
+                <td>0.955</td>
+                <td>0.952</td>
+                <td>0.945</td>
+                <td><strong>0.965</strong></td>
+                <td>-</td>
+                <td>0.967</td>
+                <td><strong>0.968</strong></td>
+                <td>0.963</td>
+                <td>0.958</td>
+                <td>0.965</td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>PolypGenMSB</td>
+                <td>0.763</td>
+                <td>0.739</td>
+                <td>0.783</td>
+                <td><strong>0.824</strong></td>
+                <td>0.794</td>
+                <td>0.557</td>
+                <td>0.584</td>
+                <td>0.538</td>
+                <td><strong>0.684</strong></td>
+                <td>0.582</td>
+                <td>0.632</td>
+                <td>0.570</td>
+              </tr>
+              <tr>
+                <td>Promise12MSB</td>
+                <td><strong>0.911</strong></td>
+                <td>0.900</td>
+                <td>0.900</td>
+                <td>0.903</td>
+                <td>0.909</td>
+                <td>-</td>
+                <td>0.903</td>
+                <td>0.896</td>
+                <td>0.902</td>
+                <td>0.905</td>
+                <td><strong>0.906</strong></td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>RoboToolMSB</td>
+                <td>0.878</td>
+                <td>0.874</td>
+                <td>0.893</td>
+                <td>0.885</td>
+                <td><strong>0.905</strong></td>
+                <td>0.885</td>
+                <td>0.854</td>
+                <td>0.864</td>
+                <td>0.867</td>
+                <td>0.835</td>
+                <td>0.868</td>
+                <td><strong>0.893</strong></td>
+              </tr>
+              <tr>
+                <td>TnbcnucleiMSB</td>
+                <td>0.813</td>
+                <td><strong>0.834</strong></td>
+                <td>0.748</td>
+                <td>0.772</td>
+                <td>0.819</td>
+                <td>0.746</td>
+                <td>0.758</td>
+                <td>0.760</td>
+                <td>0.762</td>
+                <td>0.770</td>
+                <td>0.770</td>
+                <td><strong>0.797</strong></td>
+              </tr>
+              <tr>
+                <td>UltrasoundNerveMSB</td>
+                <td>0.799</td>
+                <td><strong>0.801</strong></td>
+                <td>0.779</td>
+                <td>0.786</td>
+                <td>0.798</td>
+                <td>-</td>
+                <td>0.796</td>
+                <td>0.782</td>
+                <td><strong>0.814</strong></td>
+                <td>0.791</td>
+                <td>0.802</td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>USforKidneyMSB</td>
+                <td>0.979</td>
+                <td>0.979</td>
+                <td><strong>0.981</strong></td>
+                <td>0.980</td>
+                <td>0.980</td>
+                <td>-</td>
+                <td>0.980</td>
+                <td>0.978</td>
+                <td><strong>0.982</strong></td>
+                <td>0.980</td>
+                <td>0.980</td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>UWSkinCancerMSB</td>
+                <td>0.920</td>
+                <td>0.925</td>
+                <td>0.928</td>
+                <td><strong>0.939</strong></td>
+                <td>0.926</td>
+                <td>0.930</td>
+                <td>0.857</td>
+                <td>0.829</td>
+                <td><strong>0.882</strong></td>
+                <td>0.857</td>
+                <td>0.839</td>
+                <td>0.872</td>
+              </tr>
+              <tr>
+                <td>WbcMSB</td>
+                <td>0.961</td>
+                <td>0.962</td>
+                <td>0.965</td>
+                <td>0.959</td>
+                <td>0.963</td>
+                <td><strong>0.966</strong></td>
+                <td>0.966</td>
+                <td>0.966</td>
+                <td>0.968</td>
+                <td>0.963</td>
+                <td><strong>0.970</strong></td>
+                <td>0.969</td>
+              </tr>
+              <tr>
+                <td>YeazMSB</td>
+                <td>0.935</td>
+                <td>0.931</td>
+                <td><strong>0.936</strong></td>
+                <td>0.931</td>
+                <td>0.934</td>
+                <td>-</td>
+                <td>0.974</td>
+                <td><strong>0.979</strong></td>
+                <td>0.971</td>
+                <td>0.977</td>
+                <td>0.978</td>
+                <td>-</td>
+              </tr>
+            </tbody>
+          </table>
+          <!-- F1-IOU -->
+          <table class="table table-hover">
+            <caption>
+              The average F1-score and IOU results for six encoder networks. RN-18: ResNet-18; RN-50: ResNet-50; EN: Efficient-Net; MN-v2: Mobile-Net-v2; DN-121: DenseNet-121; MVT: Mix Vision Transformer. Results are presented for each dataset, with the highest scores for F1 and IOU highlighted. A dash (-) indicates that the network was not evaluated for that particular dataset due to input channel constraints.
+            </caption>
+            <thead class="thead-light">
+              <tr>
+                <th></th>
+                <th colspan="6">F1-Score (F1)</th>
+                <th colspan="6">Intersection over Union (IOU)</th>
+              </tr>
+              <tr>
+                <th>Dataset</th>
+                <th>RN-18</th>
+                <th>RN-50</th>
+                <th>EN</th>
+                <th>MN-v2</th>
+                <th>DN-121</th>
+                <th>MVT</th>
+                <th>RN-18</th>
+                <th>RN-50</th>
+                <th>EN</th>
+                <th>MN-v2</th>
+                <th>DN-121</th>
+                <th>MVT</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>AbdomenUSMSB</td>
+                <td>0.642</td>
+                <td>0.640</td>
+                <td>0.640</td>
+                <td>0.635</td>
+                <td><strong>0.643</strong></td>
+                <td>-</td>
+                <td><strong>0.632</strong></td>
+                <td>0.630</td>
+                <td>0.628</td>
+                <td>0.624</td>
+                <td><strong>0.632</strong></td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>Bbbc010MSB</td>
+                <td>0.915</td>
+                <td>0.917</td>
+                <td>0.910</td>
+                <td>0.908</td>
+                <td><strong>0.920</strong></td>
+                <td>-</td>
+                <td>0.844</td>
+                <td>0.848</td>
+                <td>0.837</td>
+                <td>0.833</td>
+                <td><strong>0.854</strong></td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>Bkai-Igh-MSB</td>
+                <td>0.554</td>
+                <td>0.617</td>
+                <td>0.692</td>
+                <td><strong>0.733</strong></td>
+                <td>0.630</td>
+                <td>0.554</td>
+                <td>0.546</td>
+                <td>0.604</td>
+                <td>0.676</td>
+                <td><strong>0.713</strong></td>
+                <td>0.615</td>
+                <td>0.546</td>
+              </tr>
+              <tr>
+                <td>BriFiSegMSB</td>
+                <td>0.826</td>
+                <td>0.834</td>
+                <td>0.831</td>
+                <td>0.816</td>
+                <td><strong>0.840</strong></td>
+                <td>-</td>
+                <td>0.717</td>
+                <td>0.728</td>
+                <td>0.724</td>
+                <td>0.702</td>
+                <td><strong>0.738</strong></td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>BusiMSB</td>
+                <td>0.674</td>
+                <td>0.632</td>
+                <td><strong>0.711</strong></td>
+                <td>0.655</td>
+                <td>0.695</td>
+                <td>-</td>
+                <td>0.578</td>
+                <td>0.547</td>
+                <td><strong>0.624</strong></td>
+                <td>0.565</td>
+                <td>0.615</td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>CellNucleiMSB</td>
+                <td>0.889</td>
+                <td>0.892</td>
+                <td>0.894</td>
+                <td>0.880</td>
+                <td><strong>0.907</strong></td>
+                <td>0.891</td>
+                <td>0.822</td>
+                <td>0.827</td>
+                <td>0.830</td>
+                <td>0.815</td>
+                <td><strong>0.838</strong></td>
+                <td>0.826</td>
+              </tr>
+              <tr>
+                <td>ChaseDB1MSB</td>
+                <td>0.758</td>
+                <td>0.761</td>
+                <td>0.750</td>
+                <td>0.744</td>
+                <td><strong>0.764</strong></td>
+                <td>0.735</td>
+                <td>0.611</td>
+                <td>0.615</td>
+                <td>0.601</td>
+                <td>0.594</td>
+                <td><strong>0.618</strong></td>
+                <td>0.582</td>
+              </tr>
+              <tr>
+                <td>ChuacMSB</td>
+                <td>0.487</td>
+                <td>0.451</td>
+                <td>0.499</td>
+                <td>0.462</td>
+                <td><strong>0.522</strong></td>
+                <td>-</td>
+                <td>0.357</td>
+                <td>0.334</td>
+                <td>0.369</td>
+                <td>0.340</td>
+                <td><strong>0.400</strong></td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>Covid19RadioMSB</td>
+                <td>0.991</td>
+                <td>0.990</td>
+                <td>0.991</td>
+                <td>0.991</td>
+                <td>0.992</td>
+                <td>-</td>
+                <td>0.982</td>
+                <td>0.981</td>
+                <td>0.983</td>
+                <td>0.982</td>
+                <td>0.983</td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>CovidQUExMSB</td>
+                <td>0.740</td>
+                <td>0.734</td>
+                <td>0.744</td>
+                <td>0.742</td>
+                <td><strong>0.756</strong></td>
+                <td>-</td>
+                <td>0.627</td>
+                <td>0.620</td>
+                <td>0.633</td>
+                <td>0.631</td>
+                <td><strong>0.647</strong></td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>CystoFluidMSB</td>
+                <td>0.852</td>
+                <td><strong>0.857</strong></td>
+                <td>0.849</td>
+                <td>0.842</td>
+                <td>0.853</td>
+                <td>0.855</td>
+                <td>0.759</td>
+                <td><strong>0.765</strong></td>
+                <td>0.754</td>
+                <td>0.747</td>
+                <td>0.761</td>
+                <td>0.763</td>
+              </tr>
+              <tr>
+                <td>Dca1MSB</td>
+                <td>0.762</td>
+                <td><strong>0.767</strong></td>
+                <td>0.753</td>
+                <td>0.751</td>
+                <td>0.765</td>
+                <td>-</td>
+                <td>0.618</td>
+                <td><strong>0.625</strong></td>
+                <td>0.606</td>
+                <td>0.604</td>
+                <td>0.623</td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>DeepbacsMSB</td>
+                <td>0.930</td>
+                <td><strong>0.931</strong></td>
+                <td>0.925</td>
+                <td>0.921</td>
+                <td>0.929</td>
+                <td>-</td>
+                <td>0.869</td>
+                <td><strong>0.870</strong></td>
+                <td>0.860</td>
+                <td>0.853</td>
+                <td>0.867</td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>DriveMSB</td>
+                <td>0.782</td>
+                <td><strong>0.786</strong></td>
+                <td>0.770</td>
+                <td>0.775</td>
+                <td>0.782</td>
+                <td>0.781</td>
+                <td>0.643</td>
+                <td><strong>0.648</strong></td>
+                <td>0.626</td>
+                <td>0.634</td>
+                <td>0.643</td>
+                <td>0.641</td>
+              </tr>
+              <tr>
+                <td>DynamicNuclearMSB</td>
+                <td>0.941</td>
+                <td>0.942</td>
+                <td><strong>0.948</strong></td>
+                <td>0.940</td>
+                <td>0.942</td>
+                <td>-</td>
+                <td>0.895</td>
+                <td>0.897</td>
+                <td><strong>0.906</strong></td>
+                <td>0.893</td>
+                <td>0.897</td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>FHPsAOPMSB</td>
+                <td><strong>0.961</strong></td>
+                <td>0.957</td>
+                <td>0.959</td>
+                <td>0.959</td>
+                <td>0.960</td>
+                <td>-</td>
+                <td><strong>0.929</strong></td>
+                <td>0.923</td>
+                <td>0.927</td>
+                <td>0.927</td>
+                <td>0.928</td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>IdribMSB</td>
+                <td><strong>0.100</strong></td>
+                <td>0.090</td>
+                <td>0.078</td>
+                <td>0.092</td>
+                <td>0.089</td>
+                <td>0.053</td>
+                <td><strong>0.061</strong></td>
+                <td>0.054</td>
+                <td>0.046</td>
+                <td>0.056</td>
+                <td>0.054</td>
+                <td>0.030</td>
+              </tr>
+              <tr>
+                <td>Isic2016MSB</td>
+                <td>0.878</td>
+                <td>0.887</td>
+                <td><strong>0.903</strong></td>
+                <td>0.891</td>
+                <td>0.893</td>
+                <td>0.891</td>
+                <td>0.803</td>
+                <td>0.814</td>
+                <td><strong>0.836</strong></td>
+                <td>0.820</td>
+                <td>0.825</td>
+                <td>0.822</td>
+              </tr>
+              <tr>
+                <td>Isic2018MSB</td>
+                <td>0.849</td>
+                <td>0.849</td>
+                <td><strong>0.868</strong></td>
+                <td>0.865</td>
+                <td>0.861</td>
+                <td>0.853</td>
+                <td>0.761</td>
+                <td>0.762</td>
+                <td><strong>0.790</strong></td>
+                <td>0.783</td>
+                <td>0.785</td>
+                <td>0.773</td>
+              </tr>
+              <tr>
+                <td>KvasirMSB</td>
+                <td>0.739</td>
+                <td>0.698</td>
+                <td>0.812</td>
+                <td>0.754</td>
+                <td><strong>0.794</strong></td>
+                <td>0.569</td>
+                <td>0.645</td>
+                <td>0.596</td>
+                <td><strong>0.733</strong></td>
+                <td>0.668</td>
+                <td>0.718</td>
+                <td>0.457</td>
+              </tr>
+              <tr>
+                <td>M2caiSegMSB</td>
+                <td>0.214</td>
+                <td>0.215</td>
+                <td>0.218</td>
+                <td>0.216</td>
+                <td><strong>0.223</strong></td>
+                <td>0.217</td>
+                <td>0.190</td>
+                <td>0.191</td>
+                <td>0.196</td>
+                <td>0.192</td>
+                <td><strong>0.200</strong></td>
+                <td>0.194</td>
+              </tr>
+              <tr>
+                <td>MonusacMSB</td>
+                <td>0.557</td>
+                <td><strong>0.559</strong></td>
+                <td><strong>0.559</strong></td>
+                <td><strong>0.559</strong></td>
+                <td><strong>0.559</strong></td>
+                <td>0.538</td>
+                <td><strong>0.540</strong></td>
+                <td><strong>0.540</strong></td>
+                <td><strong>0.540</strong></td>
+                <td><strong>0.540</strong></td>
+                <td><strong>0.540</strong></td>
+                <td><strong>0.540</strong></td>
+              </tr>
+              <tr>
+                <td>MosMedPlusMSB</td>
+                <td>0.780</td>
+                <td>0.790</td>
+                <td>0.781</td>
+                <td>0.785</td>
+                <td><strong>0.791</strong></td>
+                <td>0.761</td>
+                <td>0.674</td>
+                <td>0.682</td>
+                <td>0.674</td>
+                <td>0.679</td>
+                <td><strong>0.686</strong></td>
+                <td>0.650</td>
+              </tr>
+              <tr>
+                <td>NucleiMSB</td>
+                <td><strong>0.282</strong></td>
+                <td>0.274</td>
+                <td>0.278</td>
+                <td>0.205</td>
+                <td>0.275</td>
+                <td>0.253</td>
+                <td><strong>0.169</strong></td>
+                <td>0.164</td>
+                <td>0.167</td>
+                <td>0.119</td>
+                <td>0.166</td>
+                <td>0.150</td>
+              </tr>
+              <tr>
+                <td>NusetMSB</td>
+                <td>0.949</td>
+                <td>0.949</td>
+                <td><strong>0.951</strong></td>
+                <td>0.950</td>
+                <td><strong>0.951</strong></td>
+                <td>-</td>
+                <td>0.906</td>
+                <td>0.906</td>
+                <td>0.909</td>
+                <td>0.907</td>
+                <td><strong>0.910</strong></td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>PandentalMSB</td>
+                <td>0.961</td>
+                <td>0.961</td>
+                <td>0.957</td>
+                <td>0.950</td>
+                <td><strong>0.965</strong></td>
+                <td>-</td>
+                <td>0.926</td>
+                <td>0.926</td>
+                <td>0.919</td>
+                <td>0.907</td>
+                <td><strong>0.932</strong></td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>PolypGenMSB</td>
+                <td>0.573</td>
+                <td>0.541</td>
+                <td><strong>0.666</strong></td>
+                <td>0.588</td>
+                <td>0.621</td>
+                <td>0.477</td>
+                <td>0.495</td>
+                <td>0.457</td>
+                <td><strong>0.587</strong></td>
+                <td>0.512</td>
+                <td>0.545</td>
+                <td>0.382</td>
+              </tr>
+              <tr>
+                <td>Promise12MSB</td>
+                <td>0.895</td>
+                <td>0.888</td>
+                <td>0.892</td>
+                <td>0.896</td>
+                <td><strong>0.900</strong></td>
+                <td>-</td>
+                <td>0.828</td>
+                <td>0.817</td>
+                <td>0.821</td>
+                <td>0.827</td>
+                <td><strong>0.832</strong></td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>RoboToolMSB</td>
+                <td>0.856</td>
+                <td>0.859</td>
+                <td>0.874</td>
+                <td>0.847</td>
+                <td>0.879</td>
+                <td><strong>0.882</strong></td>
+                <td>0.765</td>
+                <td>0.769</td>
+                <td>0.788</td>
+                <td>0.753</td>
+                <td><strong>0.798</strong></td>
+                <td><strong>0.798</strong></td>
+              </tr>
+              <tr>
+                <td>TnbcnucleiMSB</td>
+                <td>0.779</td>
+                <td>0.785</td>
+                <td>0.738</td>
+                <td>0.762</td>
+                <td><strong>0.788</strong></td>
+                <td>0.759</td>
+                <td>0.641</td>
+                <td>0.652</td>
+                <td>0.596</td>
+                <td>0.621</td>
+                <td><strong>0.654</strong></td>
+                <td>0.618</td>
+              </tr>
+              <tr>
+                <td>UltrasoundNerveMSB</td>
+                <td>0.782</td>
+                <td>0.776</td>
+                <td><strong>0.787</strong></td>
+                <td>0.772</td>
+                <td>0.786</td>
+                <td>-</td>
+                <td>0.671</td>
+                <td>0.664</td>
+                <td>0.675</td>
+                <td>0.660</td>
+                <td><strong>0.676</strong></td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>USforKidneyMSB</td>
+                <td>0.979</td>
+                <td>0.978</td>
+                <td><strong>0.981</strong></td>
+                <td>0.980</td>
+                <td>0.980</td>
+                <td>-</td>
+                <td>0.960</td>
+                <td>0.958</td>
+                <td><strong>0.963</strong></td>
+                <td>0.961</td>
+                <td>0.960</td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>UWSkinCancerMSB</td>
+                <td>0.864</td>
+                <td>0.846</td>
+                <td><strong>0.890</strong></td>
+                <td>0.879</td>
+                <td>0.856</td>
+                <td>0.881</td>
+                <td>0.795</td>
+                <td>0.766</td>
+                <td><strong>0.818</strong></td>
+                <td>0.803</td>
+                <td>0.779</td>
+                <td>0.813</td>
+              </tr>
+              <tr>
+                <td>WbcMSB</td>
+                <td>0.962</td>
+                <td>0.963</td>
+                <td>0.966</td>
+                <td>0.959</td>
+                <td>0.966</td>
+                <td><strong>0.967</strong></td>
+                <td>0.930</td>
+                <td>0.931</td>
+                <td>0.937</td>
+                <td>0.926</td>
+                <td>0.936</td>
+                <td><strong>0.938</strong></td>
+              </tr>
+              <tr>
+                <td>YeazMSB</td>
+                <td>0.953</td>
+                <td>0.953</td>
+                <td>0.952</td>
+                <td>0.952</td>
+                <td><strong>0.954</strong></td>
+                <td>-</td>
+                <td>0.912</td>
+                <td>0.912</td>
+                <td>0.909</td>
+                <td>0.910</td>
+                <td><strong>0.914</strong></td>
+                <td>-</td>
+              </tr>
+            </tbody>
+            </table>
+        </div>
+
+
+        <!-- License -->
+        <hr style="background-color: gray;">
+        <h2 class="title is-3" align="left">License</h2>
+        <div class="content has-text-justified">
+          <p>
+            The MedSegBench dataset is licensed under Creative Commons Attribution 4.0 International (<a
+            href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a>).
+          </p>
+          <p>
+            The code under <a href="https://github.com/zekikus/MedSegBench?tab=Apache-2.0-1-ov-file#readme" target="_blank">Apache-2.0 License</a>
+          </p>
+        </div>
+        <hr style="background-color: gray;">
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+
+
+<!--BibTex citation -->
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@article{Ku2024,
+        title = {MedSegBench: A comprehensive benchmark for medical image segmentation in diverse data modalities},
+        volume = {11},
+        ISSN = {2052-4463},
+        url = {http://dx.doi.org/10.1038/s41597-024-04159-2},
+        DOI = {10.1038/s41597-024-04159-2},
+        number = {1},
+        journal = {Scientific Data},
+        publisher = {Springer Science and Business Media LLC},
+        author = {Kuş,  Zeki and Aydin,  Musa},
+        year = {2024},
+        month = nov 
+      }</code></pre>
+      <p>
+        Please also cite the corresponding paper(s) of source data if you use any subset of MedSegBench <a href="static/medsegbench.bib">(check this bibtex).</a>
+      </p>
+    </div>
+</section>
+<!--End BibTex citation -->
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template.
+            <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a><br>
+            This website created by Zeki Kuş and Musa Aydin is hosted on GitHub.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p>
+    
+  </p>
+</footer>
+
+  </body>
+  </html>
